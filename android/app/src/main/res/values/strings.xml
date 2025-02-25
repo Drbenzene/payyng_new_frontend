@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">Payyng</string>
+    <string name="title_activity_main">Payyng</string>
+    <string name="package_name">com.payyng.app</string>
+    <string name="custom_url_scheme">com.payyng.app</string>
+</resources>

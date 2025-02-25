@@ -1,0 +1,89 @@
+<svg viewBox="0 0 1235 650" xmlns="http://www.w3.org/2000/svg">
+  <!-- Red and White Stripes -->
+  <rect width="1235" height="650" fill="white"/>
+  <rect width="1235" height="50" y="0" fill="#B22234"/>
+  <rect width="1235" height="50" y="100" fill="#B22234"/>
+  <rect width="1235" height="50" y="200" fill="#B22234"/>
+  <rect width="1235" height="50" y="300" fill="#B22234"/>
+  <rect width="1235" height="50" y="400" fill="#B22234"/>
+  <rect width="1235" height="50" y="500" fill="#B22234"/>
+  <rect width="1235" height="50" y="600" fill="#B22234"/>
+
+  <!-- Blue Union (Canton) -->
+  <rect width="494" height="350" fill="#3C3B6E"/>
+
+  <!-- Stars -->
+  <g fill="white">
+    <!-- 9 rows: alternating 6 and 5 stars -->
+    <g>
+      <g transform="translate(30,30)">
+        <circle cx="0" cy="0" r="13"/>
+        <circle cx="82" cy="0" r="13"/>
+        <circle cx="164" cy="0" r="13"/>
+        <circle cx="246" cy="0" r="13"/>
+        <circle cx="328" cy="0" r="13"/>
+        <circle cx="410" cy="0" r="13"/>
+      </g>
+      <g transform="translate(70,70)">
+        <circle cx="0" cy="0" r="13"/>
+        <circle cx="82" cy="0" r="13"/>
+        <circle cx="164" cy="0" r="13"/>
+        <circle cx="246" cy="0" r="13"/>
+        <circle cx="328" cy="0" r="13"/>
+      </g>
+      <g transform="translate(30,110)">
+        <circle cx="0" cy="0" r="13"/>
+        <circle cx="82" cy="0" r="13"/>
+        <circle cx="164" cy="0" r="13"/>
+        <circle cx="246" cy="0" r="13"/>
+        <circle cx="328" cy="0" r="13"/>
+        <circle cx="410" cy="0" r="13"/>
+      </g>
+      <g transform="translate(70,150)">
+        <circle cx="0" cy="0" r="13"/>
+        <circle cx="82" cy="0" r="13"/>
+        <circle cx="164" cy="0" r="13"/>
+        <circle cx="246" cy="0" r="13"/>
+        <circle cx="328" cy="0" r="13"/>
+      </g>
+      <g transform="translate(30,190)">
+        <circle cx="0" cy="0" r="13"/>
+        <circle cx="82" cy="0" r="13"/>
+        <circle cx="164" cy="0" r="13"/>
+        <circle cx="246" cy="0" r="13"/>
+        <circle cx="328" cy="0" r="13"/>
+        <circle cx="410" cy="0" r="13"/>
+      </g>
+      <g transform="translate(70,230)">
+        <circle cx="0" cy="0" r="13"/>
+        <circle cx="82" cy="0" r="13"/>
+        <circle cx="164" cy="0" r="13"/>
+        <circle cx="246" cy="0" r="13"/>
+        <circle cx="328" cy="0" r="13"/>
+      </g>
+      <g transform="translate(30,270)">
+        <circle cx="0" cy="0" r="13"/>
+        <circle cx="82" cy="0" r="13"/>
+        <circle cx="164" cy="0" r="13"/>
+        <circle cx="246" cy="0" r="13"/>
+        <circle cx="328" cy="0" r="13"/>
+        <circle cx="410" cy="0" r="13"/>
+      </g>
+      <g transform="translate(70,310)">
+        <circle cx="0" cy="0" r="13"/>
+        <circle cx="82" cy="0" r="13"/>
+        <circle cx="164" cy="0" r="13"/>
+        <circle cx="246" cy="0" r="13"/>
+        <circle cx="328" cy="0" r="13"/>
+      </g>
+      <g transform="translate(30,350)">
+        <circle cx="0" cy="0" r="13"/>
+        <circle cx="82" cy="0" r="13"/>
+        <circle cx="164" cy="0" r="13"/>
+        <circle cx="246" cy="0" r="13"/>
+        <circle cx="328" cy="0" r="13"/>
+        <circle cx="410" cy="0" r="13"/>
+      </g>
+    </g>
+  </g>
+</svg>

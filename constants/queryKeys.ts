@@ -1,0 +1,15 @@
+export const QUERY_KEY = {
+  login: "login",
+  user: "user",
+  wallet: "wallet",
+  transactions: "transactions",
+  giftCard: "giftCard",
+  configs: "configs",
+  nigeriaBanks: "nigeriaBanks",
+  rates: "rates",
+  cards: "cards",
+  cardTransactions: "cardTransactions",
+  walletAccount: "walletAccount",
+  paypalInvoices: "paypalInvoices",
+  bank: "bank",
+};
