@@ -1,6 +1,6 @@
 export const APP_PATH = {
   VERIFY_EMAIL: "/verify-email",
-  REGISTER: "/register",
+  REGISTER: "/sign-up",
   LOGIN: "/login",
   OVERVIEW: "/overview",
   SET_PIN: "/set-pin",

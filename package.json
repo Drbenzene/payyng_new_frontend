@@ -41,6 +41,7 @@
     "react-currency-input-field": "^3.9.0",
     "react-dom": "^19.0.0",
     "react-icons": "^5.4.0",
+    "react-intersection-observer": "^9.15.1",
     "react-loader-spinner": "^6.1.6",
     "react-lottie-player": "^2.1.0",
     "react-multi-carousel": "^2.8.5",
