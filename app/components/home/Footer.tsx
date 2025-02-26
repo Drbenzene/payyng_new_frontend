@@ -25,7 +25,7 @@ function Footer() {
             <img
               className="mb-4 w-36"
               src="/logo.png"
-              alt="Light version of Kobodrop logo"
+              alt="Light version of Payyng logo"
             />
             <p>
               Payments and International Remittance made easy and fun for

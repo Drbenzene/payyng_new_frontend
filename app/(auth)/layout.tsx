@@ -1,6 +1,6 @@
 "use client";
 
-import React from "react";
+import React, { useEffect } from "react";
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 import Image from "next/image";
@@ -32,6 +32,19 @@ interface AuthLayoutProps {
 
 function AuthLayout({ children }: AuthLayoutProps) {
   const sliderImages = ["/slide1.jpg", "/slide2.jpg", "/slide3.jpg"];
+
+  //DISABLE RIGHT CLICK ON THE APP
+  useEffect(() => {
+    const disableRightClick = (event: any) => {
+      event.preventDefault();
+    };
+
+    document.addEventListener("contextmenu", disableRightClick);
+
+    return () => {
+      document.removeEventListener("contextmenu", disableRightClick);
+    };
+  }, []);
 
   return (
     <div className="flex min-h-screen bg-[#F7F7F7]">

@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 export interface ButtonLinkProps {
   href: string;
   children?: React.ReactNode;
@@ -6,13 +8,14 @@ export interface ButtonLinkProps {
   logo?: string;
   upperText?: string;
   lowerText?: string;
+  onClick?: () => void;
 }
 
 function ButtonLink({ href, children, className, target }: ButtonLinkProps) {
   return (
-    <a href={href} className={className} target={target}>
+    <Link href={href} className={className} target={target}>
       {children}
-    </a>
+    </Link>
   );
 }
 

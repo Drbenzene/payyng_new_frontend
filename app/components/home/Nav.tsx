@@ -21,7 +21,7 @@ function Nav() {
               <ButtonLink href="#">
                 <Image
                   src="/logo.png"
-                  alt="Kobodrop logo"
+                  alt="Payyng logo"
                   width={120}
                   height={40}
                 />

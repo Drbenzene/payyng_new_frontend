@@ -1,9 +1,8 @@
 "use client";
 
 import Image from "next/image";
-import { useEffect, useState } from "react";
-// import { useState, useEffect } from "react";
-// import { InstallPrompt } from "./components/install/installPrompt";
+import { useEffect } from "react";
+import { InstallPrompt } from "./components/install/installPrompt";
 // import { subscribeUser, unsubscribeUser, sendNotification } from "./actions";
 import DisableDevtool from "disable-devtool";
 import Nav from "./components/home/Nav";
@@ -14,9 +13,6 @@ import Reviews from "./components/home/Reviews";
 import Footer from "./components/home/Footer";
 
 export default function Home() {
-  const [isInstallable, setIsInstallable] = useState(false);
-  const [deferredPrompt, setDeferredPrompt] = useState<any>(null);
-
   useEffect(() => {
     const disableRightClick = (event: any) => {
       event.preventDefault();
@@ -29,41 +25,10 @@ export default function Home() {
     };
   }, []);
 
-  // useEffect(() => {
-  //   DisableDevtool();
-  // }, []);
-
   useEffect(() => {
-    // Listen for the "beforeinstallprompt" event
-    const handleBeforeInstallPrompt = (event: any) => {
-      event.preventDefault(); // Prevent the default prompt
-      setDeferredPrompt(event); // Save the event to trigger later
-      setIsInstallable(true); // Show the install button
-    };
-
-    window.addEventListener("beforeinstallprompt", handleBeforeInstallPrompt);
-
-    return () => {
-      window.removeEventListener(
-        "beforeinstallprompt",
-        handleBeforeInstallPrompt
-      );
-    };
+    DisableDevtool();
   }, []);
 
-  const handleInstall = () => {
-    if (deferredPrompt) {
-      // Show the install prompt
-      deferredPrompt.prompt();
-
-      // Wait for the user to respond to the prompt
-      deferredPrompt.userChoice.then((choiceResult: any) => {
-        console.log(choiceResult.outcome); // Log the user’s choice
-        setIsInstallable(false);
-        setDeferredPrompt(null);
-      });
-    }
-  };
   return (
     <div>
       <Nav />
@@ -72,8 +37,7 @@ export default function Home() {
       <Partners />
       <Reviews />
       <Footer />
-
-      {/* <InstallPrompt /> */}
+      <InstallPrompt />
     </div>
   );
   // return (
