@@ -27,24 +27,21 @@ function Footer() {
               src="/logo.png"
               alt="Light version of Kobodrop logo"
             />
-            <p>Start spending the smart way</p>
+            <p>
+              Payments and International Remittance made easy and fun for
+              Nigerians.{" "}
+            </p>
           </div>
           <div className="flex gap-10">
             <div className="flex flex-col gap-2">
               <p className="text-gray-400">Product</p>
-              <a href="#">Overview</a>
-              <a href="#">Features</a>
-              <a href="#">Solutions</a>
-              <a href="#">Contact</a>
-              <a href="#">Releases</a>
+              <a href="#hero">Overview</a>
+              <a href="#features">Features</a>
+              <a href="#reviews">Reviews</a>
             </div>
             <div className="flex flex-col gap-2">
               <p className="text-gray-400">Resources</p>
-              <a href="#">Blog</a>
-              <a href="#">Newsletter</a>
-              <a href="#">Events</a>
-              <a href="#">Help Centre</a>
-              <a href="#">Support</a>
+              <a href="milto:support@payyng.com">Support</a>
             </div>
           </div>
           <div className="w-fit">
