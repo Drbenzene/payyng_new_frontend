@@ -1,5 +1,7 @@
 // Import Lottie dynamically, disabling SSR
 import dynamic from "next/dynamic";
+import ModalLayout from "../layouts/ModalLayout";
+import PayyngButton from "../button/PayyngButton";
 
 // Dynamically import the Lottie component
 const Lottie = dynamic(() => import("react-lottie-player"), {
@@ -23,37 +25,42 @@ function TransactionSuccess({
 }: TransactionSuccessProps) {
   const { push } = useRouter();
   return (
-    <div>
-      <div
-        className={`${
-          open ? "block" : "hidden"
-        } max-w-[400px] p-5 bg-white rounded-xl shadow-lg`}
-      >
-        <div className="flex flex-col justify-center items-center">
-          <Lottie
-            loop
-            animationData={successAnimationData}
-            play
-            style={{ width: 150, height: 150 }}
-          />
-          <p className="text-gray-500 mt-2">
-            {description ||
-              "Your transaction was completed successfully. Thanks for choosing Payyng"}
-          </p>
-        </div>
-        <div className="mt-5">
-          <button
-            onClick={() => {
-              setOpen(false);
-              push(APP_PATH.OVERVIEW);
-            }}
-            className="w-full bg-blue-500 text-white p-3 rounded-xl"
-          >
-            PROCEED
-          </button>
+    <ModalLayout maxWidth="max-w-sm" open={open} setOpen={setOpen} title={""}>
+      <div>
+        <div>
+          <div className="flex flex-col justify-center items-center">
+            <Lottie
+              loop
+              animationData={successAnimationData}
+              play
+              style={{ width: 150, height: 150 }}
+            />
+            <p className="text-gray-500 mt-2">
+              {description ||
+                "Your transaction was completed successfully. Thanks for choosing Payyng"}
+            </p>
+          </div>
+          <div className="mt-5">
+            <PayyngButton
+              onClick={() => {
+                setOpen(false);
+                push(APP_PATH.OVERVIEW);
+              }}
+              text={"PROCEED"}
+            />
+            {/* <button
+              onClick={() => {
+                setOpen(false);
+                push(APP_PATH.OVERVIEW);
+              }}
+              className="w-full bg-blue-500 text-white p-3 rounded-xl"
+            >
+              PROCEED
+            </button> */}
+          </div>
         </div>
       </div>
-    </div>
+    </ModalLayout>
   );
 }
 

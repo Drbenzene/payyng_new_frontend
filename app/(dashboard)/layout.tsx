@@ -69,7 +69,7 @@ const mobileNavigation = [
     icon: TbSunElectricity,
   },
   { name: "Transactions", href: "/transactions", icon: FaListCheck },
-  { name: "More", href: "#", icon: MdMoreVert },
+  // { name: "More", href: "#", icon: MdMoreVert },
 ];
 
 const userNavigation = [{ name: "Sign out", href: "#" }];
@@ -367,13 +367,20 @@ export default function RootLayout({ children }: RootLayoutProps) {
             ))}
 
             <Menu as="div" className="relative">
-              <MenuButton className=" flex flex-col items-center">
-                <MdMoreVert />
-                <p>More</p>
+              <MenuButton
+                className={classNames(
+                  pathName === "more"
+                    ? "text-black"
+                    : "text-gray-500 hover:text-gray-700",
+                  "flex flex-col items-center text-sm font-medium"
+                )}
+              >
+                <MdMoreVert className="h-6 w-6" />
+                <p className="mt-1">More</p>
               </MenuButton>
               <MenuItems
                 transition
-                className="absolute right-0 z-10 mt-2.5 w-32 origin-top-right rounded-md bg-white py-2 shadow-lg ring-1 ring-gray-900/5 transition focus:outline-none data-[closed]:scale-95 data-[closed]:transform data-[closed]:opacity-0 data-[enter]:duration-100 data-[leave]:duration-75 data-[enter]:ease-out data-[leave]:ease-in"
+                className="absolute bg-white top-0 right-0 z-10 mb-2.5 w-32 origin-bottom-right rounded-md py-2 shadow-lg ring-1 ring-gray-900/5 transition focus:outline-none translate-y-[-100%] data-[closed]:scale-95 data-[closed]:transform data-[closed]:opacity-0 data-[enter]:duration-100 data-[leave]:duration-75 data-[enter]:ease-out data-[leave]:ease-in"
               >
                 {userNavigation.map((item) => (
                   <MenuItem key={item.name}>

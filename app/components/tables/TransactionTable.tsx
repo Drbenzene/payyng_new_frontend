@@ -1,17 +1,20 @@
 import { Fragment, useState } from "react";
 import { TransactionSkeletons } from "../skeletons/transactionSkeletons";
 import ModalLayout from "../layouts/ModalLayout";
+import Image from "next/image";
 
 interface TransactionDto {
   data: any[];
   columns: any[];
   loading: boolean;
+  emptyMessage?: string;
 }
 
 export default function PayyngTable({
   data,
   columns,
   loading,
+  emptyMessage,
 }: TransactionDto) {
   const [open, setOpen] = useState(false);
   const [selectedTransaction, setSelectedTransaction] = useState<any>();
@@ -75,6 +78,20 @@ export default function PayyngTable({
               </table>
             </div>
           </div>
+        </div>
+      )}
+
+      {data?.length === 0 && (
+        <div className="flex justify-center  flex-col items-center h-96">
+          <Image
+            src="/empty2.svg"
+            width={200}
+            height={200}
+            alt="No transaction"
+          />
+          <p className="text-gray-500 text-lg">
+            {emptyMessage || "No Data found"}
+          </p>
         </div>
       )}
 
