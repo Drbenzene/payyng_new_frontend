@@ -338,7 +338,7 @@ export default function RootLayout({ children }: RootLayoutProps) {
             </div>
           </div>
 
-          <main className="py-10 min-h-screen bg-onboarding bg-cover bg-center relative">
+          <main className="py-10 md:mb-0 mb-5 min-h-screen bg-onboarding bg-cover bg-center relative">
             <div className="absolute inset-0 bg-gray-100 opacity-50 z-10"></div>
             <div className="px-4 sm:px-6 lg:px-8 relative z-20">
               {/* Your content */}
@@ -356,7 +356,7 @@ export default function RootLayout({ children }: RootLayoutProps) {
                 href={item.href}
                 className={classNames(
                   item.href === pathName
-                    ? "text-indigo-600"
+                    ? "text-black"
                     : "text-gray-500 hover:text-gray-700",
                   "flex flex-col items-center text-sm font-medium"
                 )}
@@ -365,6 +365,31 @@ export default function RootLayout({ children }: RootLayoutProps) {
                 <span className="mt-1">{item.name}</span>
               </Link>
             ))}
+
+            <Menu as="div" className="relative">
+              <MenuButton className=" flex flex-col items-center">
+                <MdMoreVert />
+                <p>More</p>
+              </MenuButton>
+              <MenuItems
+                transition
+                className="absolute right-0 z-10 mt-2.5 w-32 origin-top-right rounded-md bg-white py-2 shadow-lg ring-1 ring-gray-900/5 transition focus:outline-none data-[closed]:scale-95 data-[closed]:transform data-[closed]:opacity-0 data-[enter]:duration-100 data-[leave]:duration-75 data-[enter]:ease-out data-[leave]:ease-in"
+              >
+                {userNavigation.map((item) => (
+                  <MenuItem key={item.name}>
+                    <span
+                      onClick={() => {
+                        localStorage.clear();
+                        window.location.href = "/login";
+                      }}
+                      className="block px-3 cursor-pointer py-1 text-sm leading-6 text-gray-900 data-[focus]:bg-gray-50"
+                    >
+                      {item.name}
+                    </span>
+                  </MenuItem>
+                ))}
+              </MenuItems>
+            </Menu>
           </nav>
         </div>
       </div>

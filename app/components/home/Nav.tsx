@@ -4,7 +4,7 @@ import ButtonLink from "../common/ButtonLink";
 import Image from "next/image";
 import { APP_PATH } from "@/constants/appPath";
 function Nav() {
-  const textLinkClasses = "text-white hover:text-white active:text-gray-400";
+  const textLinkClasses = "text-black hover:text-white active:text-gray-400";
 
   const navLinks = [
     { href: "#features", children: "Features" },
@@ -13,10 +13,10 @@ function Nav() {
   ];
 
   return (
-    <Disclosure className="w-screen bg-black" as="nav">
+    <Disclosure className="w-screen " as="nav">
       {({ open }) => (
         <>
-          <div className="flex bg-black w-screen h-[15vh] max-w-7xl items-center justify-between px-8 lg:px-12 xl:m-auto">
+          <div className="flex  w-screen h-[15vh] max-w-7xl items-center justify-between px-8 lg:px-12 xl:m-auto">
             <div className="flex">
               <ButtonLink href="#">
                 <Image
@@ -67,12 +67,28 @@ function Nav() {
               <Disclosure.Button
                 className="block"
                 as="a"
-                href="#features"
+                href={link.href}
                 key={index}
               >
                 {link.children}
               </Disclosure.Button>
             ))}
+
+            <div className="flex space-x-4">
+              <ButtonLink
+                href={APP_PATH.REGISTER}
+                className="active:bg hidden  px-10  rounded-xl bg-green-700 py-3 text-white hover:bg-gray-900 active:bg-gray-900 sm:flex"
+              >
+                Sign Up
+              </ButtonLink>
+
+              <ButtonLink
+                href={APP_PATH.LOGIN}
+                className="active:bg hidden px-10 rounded-xl bg-white py-3 text-black sm:flex"
+              >
+                Login
+              </ButtonLink>
+            </div>
           </Disclosure.Panel>
         </>
       )}

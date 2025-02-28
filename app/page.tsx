@@ -13,21 +13,21 @@ import Reviews from "./components/home/Reviews";
 import Footer from "./components/home/Footer";
 
 export default function Home() {
-  useEffect(() => {
-    const disableRightClick = (event: any) => {
-      event.preventDefault();
-    };
+  // useEffect(() => {
+  //   const disableRightClick = (event: any) => {
+  //     event.preventDefault();
+  //   };
 
-    document.addEventListener("contextmenu", disableRightClick);
+  //   document.addEventListener("contextmenu", disableRightClick);
 
-    return () => {
-      document.removeEventListener("contextmenu", disableRightClick);
-    };
-  }, []);
+  //   return () => {
+  //     document.removeEventListener("contextmenu", disableRightClick);
+  //   };
+  // }, []);
 
-  useEffect(() => {
-    DisableDevtool();
-  }, []);
+  // useEffect(() => {
+  //   DisableDevtool();
+  // }, []);
 
   return (
     <div>

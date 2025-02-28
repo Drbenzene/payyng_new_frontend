@@ -16,9 +16,7 @@ function Page() {
   const loginHandler = async (values: any) => {
     const res = await login(values);
     if (res) {
-      toast.success(
-        `Welcome back ${res?.user?.firstName && res?.user?.firstName}`
-      );
+      toast.success(`Welcome back`);
       localStorage.setItem("accessToken", res?.token);
       push(APP_PATH.OVERVIEW);
     }
