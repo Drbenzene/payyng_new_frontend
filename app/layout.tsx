@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Script from "next/script";
+import { GoogleAnalytics } from "@next/third-parties/google";
 
 // import { Geist, Geist_Mono } from "next/font/google";
 import { Exo } from "next/font/google";
@@ -134,7 +135,9 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" className="scroll-smooth" suppressHydrationWarning>
+      <GoogleAnalytics gaId="G-JN6RYVQYV4" />
+
       <Common>
         <body className={`${exo.className}  antialiased`}>{children}</body>
       </Common>
