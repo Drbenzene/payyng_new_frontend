@@ -65,17 +65,17 @@ function Nav() {
               </div>
             </div>
             <div className="flex space-x-4">
-              <button
+              {/* <button
                 onClick={handleInstall}
-                className="active:bg hidden px-10 rounded-xl bg-black py-3 text-white sm:flex justify-center items-center space-x-3"
+                className="active:bg  px-10 rounded-xl bg-black py-3 text-white sm:flex justify-center items-center space-x-3"
               >
                 <RiDownloadCloud2Fill size={20} />
                 <p>DOWNLOAD</p>
-              </button>
+              </button> */}
 
               <ButtonLink
                 href={APP_PATH.LOGIN}
-                className="active:bg hidden px-10 rounded-xl bg-black py-3 text-white sm:flex"
+                className="active:bg px-10 rounded-xl bg-black py-3 text-white sm:flex"
               >
                 Login
               </ButtonLink>

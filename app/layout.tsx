@@ -25,6 +25,38 @@ import "./globals.css";
 // };
 
 export const metadata: Metadata = {
+  title:
+    "Payyng App - Revolutionalizing Bill Payment And Remittance In Nigeria",
+  description:
+    "Payyng is a financial technology company that provides a platform for bill payment, remittance, and other financial services in Nigeria.",
+  keywords: [
+    "bill payment",
+    "airtime top-up",
+    "data subscription",
+    "cable TV subscription",
+    "electricity bill payment",
+    "internet subscription",
+    "payyng",
+    "payyng bills payment",
+    "USD account",
+    "USD account in Nigeria",
+    "EUR account in Nigeria",
+    "EUR account",
+    "GBP account",
+    "GBP account in Nigeria",
+    "NGN account",
+    "NGN account in Nigeria",
+    "Remmitance in Nigera",
+    "Remmitance",
+    "Payyng App",
+    "Payyng Technologies",
+    "card deposits in Nigeria",
+    "card deposit",
+    "financial applications in nigeria",
+    "financial technology in Nigeria",
+    "fintech in Nigeria",
+    "Nigeria Fintech",
+  ],
   metadataBase: new URL("https://payyng.com"),
   openGraph: {
     siteName:

@@ -10,6 +10,7 @@ interface StoreLinksProps {
 export enum BtnTypes {
   Standard,
   Variant,
+  Mobile,
 }
 
 function StoreLinks({ type }: StoreLinksProps) {
@@ -42,6 +43,33 @@ function StoreLinks({ type }: StoreLinksProps) {
   if (type === BtnTypes.Standard) {
     return (
       <div className="mt-10 hidden justify-center space-x-2 sm:flex md:justify-normal">
+        <StoreLink
+          onClick={handleInstall}
+          href="#"
+          upperText="Download"
+          lowerText="App"
+          logo="/download.svg"
+          className="flex gap-3 rounded-lg bg-zinc-900 px-4 py-3 text-white hover:bg-zinc-950 active:bg-zinc-800"
+        />
+
+        <StoreLink
+          onClick={() => {
+            push(APP_PATH.LOGIN);
+          }}
+          href="/login"
+          upperText="Login On"
+          lowerText="Payyng"
+          logo="/login2.svg"
+          target="_blank"
+          className="flex gap-3 rounded-lg bg-zinc-900 px-4 py-3 text-white hover:bg-zinc-950 active:bg-zinc-800"
+        />
+      </div>
+    );
+  }
+
+  if (type === BtnTypes.Mobile) {
+    return (
+      <div className="my-4 justify-between space-x-2 w-full flex md:hidden">
         <StoreLink
           onClick={handleInstall}
           href="#"

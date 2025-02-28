@@ -31,6 +31,8 @@ function Hero() {
             alt="A woman happily using Payyng"
           />
         </div>
+
+        <StoreLinks type={BtnTypes.Mobile} />
       </section>
     </div>
   );
