@@ -47,7 +47,7 @@ function StoreLinks({ type }: StoreLinksProps) {
           href="#"
           upperText="Download"
           lowerText="App"
-          logo="/assets/logos/app_store.svg"
+          logo="/download.svg"
           className="flex gap-3 rounded-lg bg-zinc-900 px-4 py-3 text-white hover:bg-zinc-950 active:bg-zinc-800"
         />
 

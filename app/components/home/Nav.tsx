@@ -3,6 +3,8 @@ import { Bars3Icon, XMarkIcon } from "@heroicons/react/16/solid";
 import ButtonLink from "../common/ButtonLink";
 import Image from "next/image";
 import { APP_PATH } from "@/constants/appPath";
+import { RiDownloadCloud2Fill } from "react-icons/ri";
+import { useEffect, useState } from "react";
 function Nav() {
   const textLinkClasses = "text-black hover:text-white active:text-gray-400";
 
@@ -12,6 +14,30 @@ function Nav() {
     { href: "#reviews", children: "Reviews" },
   ];
 
+  const [deferredPrompt, setDeferredPrompt] = useState<any>(null);
+
+  useEffect(() => {
+    const beforeInstallHandler = (e: any) => {
+      e.preventDefault();
+      setDeferredPrompt(e);
+    };
+
+    window.addEventListener("beforeinstallprompt", beforeInstallHandler);
+
+    return () => {
+      window.removeEventListener("beforeinstallprompt", beforeInstallHandler);
+    };
+  }, []);
+
+  const handleInstall = () => {
+    if (deferredPrompt) {
+      deferredPrompt.prompt();
+      deferredPrompt.userChoice.then((choiceResult: any) => {
+        console.log(`User choice: ${choiceResult.outcome}`);
+        setDeferredPrompt(null);
+      });
+    }
+  };
   return (
     <Disclosure className="w-screen " as="nav">
       {({ open }) => (
@@ -39,25 +65,19 @@ function Nav() {
               </div>
             </div>
             <div className="flex space-x-4">
-              <ButtonLink
-                href={APP_PATH.REGISTER}
-                className="active:bg hidden  px-10  rounded-xl bg-green-700 py-3 text-white hover:bg-gray-900 active:bg-gray-900 sm:flex"
+              <button
+                onClick={handleInstall}
+                className="active:bg hidden px-10 rounded-xl bg-black py-3 text-white sm:flex justify-center items-center space-x-3"
               >
-                Sign Up
-              </ButtonLink>
+                <RiDownloadCloud2Fill size={20} />
+                <p>DOWNLOAD</p>
+              </button>
 
               <ButtonLink
                 href={APP_PATH.LOGIN}
                 className="active:bg hidden px-10 rounded-xl bg-black py-3 text-white sm:flex"
               >
                 Login
-              </ButtonLink>
-
-              <ButtonLink
-                href={APP_PATH.LOGIN}
-                className="active:bg hidden px-10 rounded-xl bg-black py-3 text-white sm:flex"
-              >
-                DOWNLOAD APP
               </ButtonLink>
             </div>
 
