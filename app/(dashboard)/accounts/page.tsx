@@ -18,6 +18,7 @@ import { Currency, transactionColumns } from "@/constants/constantValues";
 import moment from "moment";
 import { currencyFormat } from "@/utils/helpers";
 import { useWallet } from "@/hooks/useWallet";
+import { useUser } from "@/hooks/useUser";
 import { useRouter, useSearchParams } from "next/navigation";
 import AddMoneyModal from "@/app/components/modals/AddMoneyModal";
 import TransactionSuccess from "@/app/components/modals/TransactionSuccess";
@@ -25,6 +26,8 @@ import ChooseTopupMethod from "@/app/components/modals/ChooseTopupMethod";
 import { APP_PATH } from "@/constants/appPath";
 import { useWalletAccount } from "@/hooks/useWalletAccount";
 import Image from "next/image";
+import PayyngButton from "@/app/components/button/PayyngButton";
+import VerifyBVNModal from "@/app/components/modals/VerifyBVNModal";
 
 function Page() {
   const { push } = useRouter();
@@ -33,6 +36,7 @@ function Page() {
   });
   const { data: transactions, isLoading, refetch } = useTransaction();
   const { data: wallets, refetch: refetchWallet } = useWallet();
+  const { data: user } = useUser();
   const { data: walletAccount, refetch: refetchWalletAccount } =
     useWalletAccount();
   const [activeTab, setActiveTab] = useState("NGN");
@@ -43,8 +47,11 @@ function Page() {
   const [showAddMoneyModal, setShowAddMoneyModal] = useState(false);
   const [success, setSuccess] = useState(false);
   const [showChooseTopupMethod, setShowChooseTopupMethod] = useState(false);
+  const [showVerifyBVNModal, setShowVerifyBVNModal] = useState(false);
 
   console.log(walletAccount, "THE ACCOUNTS OOOO");
+
+  console.log(user, "THE USER HEHEHE");
 
   useEffect(() => {
     refetch();
@@ -288,6 +295,53 @@ function Page() {
                   ))}
             </div>
           </div>
+
+          {walletAccount &&
+            walletAccount?.filter((item: any) => item.currency === activeTab)
+              .length === 0 && (
+              <div className="flex flex-col justify-center items-center  w-full">
+                {user?.tier === 0 && (
+                  <div className="w-auto mt-10">
+                    <p className="text-gray-500">
+                      Kindly verify your BVN to add a bank account and enjoy
+                      more features on Payyng
+                    </p>
+                    <PayyngButton
+                      onClick={() => setShowVerifyBVNModal(true)}
+                      text="Verify BVN"
+                    />
+                  </div>
+                )}
+
+                {user?.tier === 1 && (
+                  <div className="w-full flex flex-col justify-center items-center">
+                    <p className="text-gray-500">
+                      Verify your ID to unlock international remittance &
+                      payment features on Payyng
+                    </p>
+
+                    <div className="w-auto mt-5">
+                      <PayyngButton
+                        onClick={() => push(APP_PATH.VERIFICATION)}
+                        text="Verify ID"
+                      />
+                    </div>
+                  </div>
+                )}
+
+                {user?.tier === 2 && (
+                  <div className="w-full flex flex-col justify-center items-center">
+                    <p className="text-gray-500">
+                      We are currently processing your {activeTab} bank account.
+                      We will notify you once it is completed and available.
+                    </p>
+                    <div className="w-auto mt-10">
+                      <PayyngButton text="Get Notified" />
+                    </div>
+                  </div>
+                )}
+              </div>
+            )}
         </ContentLayout>
       </div>
 
@@ -342,6 +396,13 @@ function Page() {
           setOpen={() => setShowChooseTopupMethod(false)}
           setShowAddMoneyModal={setShowAddMoneyModal}
           currency={activeWallet?.currencyCode}
+        />
+      )}
+
+      {showVerifyBVNModal && (
+        <VerifyBVNModal
+          open={showVerifyBVNModal}
+          setOpen={setShowVerifyBVNModal}
         />
       )}
     </div>
