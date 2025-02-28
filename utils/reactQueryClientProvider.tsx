@@ -33,7 +33,7 @@ function ReactQueryClientProvider({ children }: ReactQueryClientProviderProps) {
       persistOptions={{ persister }}
     >
       {children}
-      {/* <ReactQueryDevtools initialIsOpen={false} /> */}
+      <ReactQueryDevtools initialIsOpen={false} />
     </PersistQueryClientProvider>
   );
 }

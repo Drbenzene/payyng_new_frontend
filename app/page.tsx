@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import { useEffect } from "react";
-import { InstallPrompt } from "./components/install/installPrompt";
+// import { InstallPrompt } from "./components/install/installPrompt";
 // import { subscribeUser, unsubscribeUser, sendNotification } from "./actions";
 import DisableDevtool from "disable-devtool";
 import Nav from "./components/home/Nav";
@@ -11,6 +11,8 @@ import Features from "./components/home/Features";
 import Partners from "./components/home/Partners";
 import Reviews from "./components/home/Reviews";
 import Footer from "./components/home/Footer";
+// import RegisterServiceWorker from "./components/workers/registerWorker";
+import { PushNotificationManager } from "./components/install/pushNotificationManager";
 
 export default function Home() {
   // useEffect(() => {
@@ -31,13 +33,15 @@ export default function Home() {
 
   return (
     <div>
+      {/* <RegisterServiceWorker /> */}
+      {/* <PushNotificationManager /> */}
       <Nav />
       <Hero />
       <Features />
       <Partners />
       <Reviews />
       <Footer />
-      <InstallPrompt />
+      {/* <InstallPrompt /> */}
     </div>
   );
   // return (

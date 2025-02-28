@@ -12,8 +12,8 @@ function Features() {
       ref={ref}
       initial={{ y: 100, opacity: 0 }} // Start below and with zero opacity
       animate={{
-        y: inView ? 0 : 30, // Slide up when in view
-        opacity: inView ? 1 : 0, // Fade in when in view
+        y: inView ? 0 : 10, // Slide up when in view
+        opacity: inView ? 1 : 0.8, // Fade in when in view
       }}
       transition={{ duration: 0.5 }}
       className="bg-black w-screen"

@@ -44,6 +44,7 @@ export function PushNotificationManager() {
   }
 
   async function subscribeToPush() {
+    console.log("subscribing to push");
     const registration = await navigator.serviceWorker.ready;
     const sub = await registration.pushManager.subscribe({
       userVisibleOnly: true,
@@ -51,6 +52,8 @@ export function PushNotificationManager() {
         process.env.NEXT_PUBLIC_VAPID_PUBLIC_KEY!
       ),
     });
+
+    console.log(sub, "TTHE SUB HEHEH");
     setSubscription(sub);
     const serializedSub = JSON.parse(JSON.stringify(sub));
     await subscribeUser(serializedSub);

@@ -19,7 +19,7 @@ export function InstallPrompt() {
 
   return (
     <div className="bg-black text-white mt-10 p-5 rounded-md">
-      <h3 className="text-lg font-extrabold text-white">Install Payyng App</h3>
+      <h3 className="text-lg font-extrabold text-white">Install Payyng</h3>
       <button>Add to Home Screen</button>
       {isIOS && (
         <p>
