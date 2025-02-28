@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 // import { InstallPrompt } from "./components/install/installPrompt";
 // import { subscribeUser, unsubscribeUser, sendNotification } from "./actions";
 import DisableDevtool from "disable-devtool";
@@ -15,6 +15,7 @@ import Footer from "./components/home/Footer";
 import { PushNotificationManager } from "./components/install/pushNotificationManager";
 
 export default function Home() {
+  const [environment, setEnvironment] = useState<string | null>(null);
   // useEffect(() => {
   //   const disableRightClick = (event: any) => {
   //     event.preventDefault();
@@ -27,9 +28,21 @@ export default function Home() {
   //   };
   // }, []);
 
-  // useEffect(() => {
-  //   DisableDevtool();
-  // }, []);
+  useEffect(() => {
+    const environment = process.env.NEXT_PUBLIC_ENV;
+    console.log("Environment: ", environment);
+    if (environment === "production") {
+      DisableDevtool({
+        disableMenu: true,
+        disableSelect: true,
+        disableCopy: true,
+        disableCut: true,
+        disablePaste: true,
+        disableIframeParents: true,
+        seo: true,
+      });
+    }
+  }, []);
 
   return (
     <div>

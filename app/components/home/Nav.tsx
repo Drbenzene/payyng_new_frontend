@@ -48,9 +48,16 @@ function Nav() {
 
               <ButtonLink
                 href={APP_PATH.LOGIN}
-                className="active:bg hidden px-10 rounded-xl bg-white py-3 text-black sm:flex"
+                className="active:bg hidden px-10 rounded-xl bg-black py-3 text-white sm:flex"
               >
                 Login
+              </ButtonLink>
+
+              <ButtonLink
+                href={APP_PATH.LOGIN}
+                className="active:bg hidden px-10 rounded-xl bg-black py-3 text-white sm:flex"
+              >
+                DOWNLOAD APP
               </ButtonLink>
             </div>
 

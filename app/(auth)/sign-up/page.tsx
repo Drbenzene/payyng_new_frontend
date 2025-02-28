@@ -7,7 +7,6 @@ import * as Yup from "yup";
 import PayyngButton from "@/app/components/button/PayyngButton";
 import AuthTitle from "@/app/components/title/AuthTitle";
 import { signUp } from "@/hooks/useAuth";
-import { toast } from "sonner";
 import { useRouter } from "next/navigation";
 import { APP_PATH } from "@/constants/appPath";
 

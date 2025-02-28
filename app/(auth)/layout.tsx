@@ -33,19 +33,6 @@ interface AuthLayoutProps {
 function AuthLayout({ children }: AuthLayoutProps) {
   const sliderImages = ["/slide1.jpg", "/slide2.jpg", "/slide3.jpg"];
 
-  //DISABLE RIGHT CLICK ON THE APP
-  useEffect(() => {
-    const disableRightClick = (event: any) => {
-      event.preventDefault();
-    };
-
-    document.addEventListener("contextmenu", disableRightClick);
-
-    return () => {
-      document.removeEventListener("contextmenu", disableRightClick);
-    };
-  }, []);
-
   return (
     <div className="flex min-h-screen bg-[#F7F7F7]">
       {/* Carousel Section (Fixed) */}

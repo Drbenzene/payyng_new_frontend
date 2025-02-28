@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import StoreLink from "../common/StoreLink";
 import { useRouter } from "next/navigation";
 import { APP_PATH } from "@/constants/appPath";
@@ -13,19 +13,27 @@ export enum BtnTypes {
 }
 
 function StoreLinks({ type }: StoreLinksProps) {
-  const [isInstallable, setIsInstallable] = useState(false);
   const [deferredPrompt, setDeferredPrompt] = useState<any>(null);
   const { push } = useRouter();
 
+  useEffect(() => {
+    const beforeInstallHandler = (e: any) => {
+      e.preventDefault();
+      setDeferredPrompt(e);
+    };
+
+    window.addEventListener("beforeinstallprompt", beforeInstallHandler);
+
+    return () => {
+      window.removeEventListener("beforeinstallprompt", beforeInstallHandler);
+    };
+  }, []);
+
   const handleInstall = () => {
     if (deferredPrompt) {
-      // Show the install prompt
       deferredPrompt.prompt();
-
-      // Wait for the user to respond to the prompt
       deferredPrompt.userChoice.then((choiceResult: any) => {
-        console.log(choiceResult.outcome); // Log the user’s choice
-        setIsInstallable(false);
+        console.log(`User choice: ${choiceResult.outcome}`);
         setDeferredPrompt(null);
       });
     }
@@ -35,31 +43,13 @@ function StoreLinks({ type }: StoreLinksProps) {
     return (
       <div className="mt-10 hidden justify-center space-x-2 sm:flex md:justify-normal">
         <StoreLink
-          onClick={() => {
-            setIsInstallable(true);
-            // alert("You can now install the app");
-            window.addEventListener("beforeinstallprompt", (e) => {
-              e.preventDefault();
-              setDeferredPrompt(e);
-            });
-          }}
-          href="https://www.apple.com/app-store"
+          onClick={handleInstall}
+          href="#"
           upperText="Download"
           lowerText="App"
           logo="/assets/logos/app_store.svg"
-          target="_blank"
           className="flex gap-3 rounded-lg bg-zinc-900 px-4 py-3 text-white hover:bg-zinc-950 active:bg-zinc-800"
         />
-
-        {/* <StoreLink
-          onClick={() => handleInstall()}
-          href="https://play.google.com"
-          upperText="Get it on"
-          lowerText="Google Play"
-          logo="/assets/logos/google_play.svg"
-          target="_blank"
-          className="flex gap-3 rounded-lg bg-zinc-900 px-4 py-3 text-white hover:bg-zinc-950 active:bg-zinc-800"
-        /> */}
 
         <StoreLink
           onClick={() => {
@@ -75,6 +65,7 @@ function StoreLinks({ type }: StoreLinksProps) {
       </div>
     );
   }
+
   if (type === BtnTypes.Variant) {
     return (
       <>
