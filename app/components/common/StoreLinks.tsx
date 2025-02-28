@@ -37,7 +37,7 @@ function StoreLinks({ type }: StoreLinksProps) {
         <StoreLink
           onClick={() => {
             setIsInstallable(true);
-            alert("You can now install the app");
+            // alert("You can now install the app");
             window.addEventListener("beforeinstallprompt", (e) => {
               e.preventDefault();
               setDeferredPrompt(e);
@@ -68,7 +68,7 @@ function StoreLinks({ type }: StoreLinksProps) {
           href="/login"
           upperText="Login On"
           lowerText="Payyng"
-          logo="/assets/logos/google_play.svg"
+          logo="/login2.svg"
           target="_blank"
           className="flex gap-3 rounded-lg bg-zinc-900 px-4 py-3 text-white hover:bg-zinc-950 active:bg-zinc-800"
         />
