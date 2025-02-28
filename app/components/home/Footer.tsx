@@ -54,16 +54,16 @@ function Footer() {
             &copy; {new Date().getFullYear()} Payyng. All rights reserved.
           </p>
           <div className="flex gap-6">
-            <a href="https://twitter.com" target="_blank">
+            <a href="https://twitter.com/payynghq" target="_blank">
               <img src="/assets/logos/icons8-twitterx.svg" alt="Twitter logo" />
             </a>
-            <a href="https://www.facebook.com" target="_blank">
+            <a href="https://www.facebook.com/payynghq" target="_blank">
               <img
                 src="/assets/logos/icons8-facebook.svg"
                 alt="Facebook logo"
               />
             </a>
-            <a href="https://www.linkedin.com" target="_blank">
+            <a href="https://www.linkedin.com/payynghq" target="_blank">
               <img
                 src="/assets/logos/icons8-linkedin.svg"
                 alt="Linkedin logo"
