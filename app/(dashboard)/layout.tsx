@@ -25,8 +25,9 @@ import { useUser } from "@/hooks/useUser";
 import { FaUserCircle } from "react-icons/fa";
 import { FiSettings } from "react-icons/fi";
 import { CiBank } from "react-icons/ci";
-import { Space_Mono } from "next/font/google";
+import { useRouter } from "next/navigation";
 import Image from "next/image";
+
 const navigation = [
   { name: "Overview", href: "/overview", icon: SiHomeadvisor },
   { name: "Accounts", href: "/accounts", icon: RiBankLine },
@@ -74,6 +75,13 @@ const mobileNavigation = [
 
 const userNavigation = [{ name: "Sign out", href: "#" }];
 
+const mobileUserNavigation = [
+  { name: "Paypal", href: "/paypal" },
+  { name: "Gift Card", href: "/gift-card" },
+  { name: "Settings", href: "/settings" },
+  { name: "Sign out", href: "/login" },
+];
+
 function classNames(...classes: string[]) {
   return classes.filter(Boolean).join(" ");
 }
@@ -83,6 +91,7 @@ interface RootLayoutProps {
 }
 
 export default function RootLayout({ children }: RootLayoutProps) {
+  const { push } = useRouter();
   const [sidebarOpen, setSidebarOpen] = useState(false);
   const pathName = usePathname();
   const { data: user } = useUser();
@@ -236,7 +245,7 @@ export default function RootLayout({ children }: RootLayoutProps) {
         </div>
 
         <div className="lg:pl-72">
-          <div className="sticky top-0 z-40 flex h-16 shrink-0 items-center gap-x-4 border-b border-gray-200 bg-white px-4 shadow-sm sm:gap-x-6 sm:px-6 lg:px-8">
+          <div className="sticky hidden md:flex top-0 z-40  h-16 shrink-0 items-center gap-x-4 border-b border-gray-200 bg-white px-4 shadow-sm sm:gap-x-6 sm:px-6 lg:px-8">
             <button
               type="button"
               onClick={() => setSidebarOpen(true)}
@@ -382,12 +391,16 @@ export default function RootLayout({ children }: RootLayoutProps) {
                 transition
                 className="absolute bg-white top-0 right-0 z-10 mb-2.5 w-32 origin-bottom-right rounded-md py-2 shadow-lg ring-1 ring-gray-900/5 transition focus:outline-none translate-y-[-100%] data-[closed]:scale-95 data-[closed]:transform data-[closed]:opacity-0 data-[enter]:duration-100 data-[leave]:duration-75 data-[enter]:ease-out data-[leave]:ease-in"
               >
-                {userNavigation.map((item) => (
+                {mobileUserNavigation.map((item) => (
                   <MenuItem key={item.name}>
                     <span
                       onClick={() => {
-                        localStorage.clear();
-                        window.location.href = "/login";
+                        if (item.name === "Sign out") {
+                          localStorage.clear();
+                          window.location.href = "/login";
+                        } else {
+                          push(item.href);
+                        }
                       }}
                       className="block px-3 cursor-pointer py-1 text-sm leading-6 text-gray-900 data-[focus]:bg-gray-50"
                     >

@@ -81,7 +81,7 @@ export default function PayyngTable({
         </div>
       )}
 
-      {data?.length === 0 && (
+      {!loading && data?.length === 0 && (
         <div className="flex justify-center  flex-col items-center h-96">
           <Image
             src="/empty2.svg"
