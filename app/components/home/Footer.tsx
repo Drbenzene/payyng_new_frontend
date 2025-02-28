@@ -1,7 +1,8 @@
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 import StoreLinks, { BtnTypes } from "../common/StoreLinks";
-
+import { IoLocation } from "react-icons/io5";
+import { MdMarkEmailUnread } from "react-icons/md";
 function Footer() {
   const { ref, inView } = useInView({
     triggerOnce: true, // Ensure the animation triggers only once
@@ -31,6 +32,19 @@ function Footer() {
               Payments and International Remittance made easy and fun for
               Nigerians.{" "}
             </p>
+
+            {/* // ADD ADDRESS HERE */}
+            <p className="mt-4 flex justify-start items-center gap-2">
+              <IoLocation size={30} />
+              <span className="font-semibold">Address:</span> 123, Payyng
+              Street, Lagos, Nigeria
+            </p>
+
+            {/* // ADD EMAIL HERE */}
+            <p className="mt-4 flex justify-start items-center gap-2">
+              <MdMarkEmailUnread size={30} />
+              <a href="mailto:support@payyng.com">support@payyng.com</a>
+            </p>
           </div>
           <div className="flex gap-10">
             <div className="flex flex-col gap-2">
@@ -41,7 +55,7 @@ function Footer() {
             </div>
             <div className="flex flex-col gap-2">
               <p className="text-gray-400">Resources</p>
-              <a href="milto:support@payyng.com">Support</a>
+              <a href="mailto:support@payyng.com">Support</a>
             </div>
           </div>
           <div className="w-fit">
