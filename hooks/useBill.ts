@@ -57,7 +57,7 @@ export async function getCableTVBouquets(service: string) {
 }
 
 export async function getEducationList() {
-  const res = await APICall(API_PATH.GET_BETTING_PROVIDERS, API_METHOD.GET);
+  const res = await APICall(API_PATH.GET_EDUCATION_LIST, API_METHOD.GET);
   return res?.data;
 }
 

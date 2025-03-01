@@ -41,6 +41,8 @@ function Page() {
           setEducationList(res);
         }
       };
+      //ensure that this is triggered once
+
       getEducationListHandler();
     }
   }, []);
