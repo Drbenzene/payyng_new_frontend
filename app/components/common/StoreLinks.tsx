@@ -69,7 +69,7 @@ function StoreLinks({ type }: StoreLinksProps) {
 
   if (type === BtnTypes.Mobile) {
     return (
-      <div className="my-4 justify-between space-x-2 w-full flex md:hidden">
+      <div className="my-4 justify-center space-x-5 w-full flex md:hidden">
         <StoreLink
           onClick={handleInstall}
           href="#"
@@ -98,7 +98,8 @@ function StoreLinks({ type }: StoreLinksProps) {
     return (
       <>
         <StoreLink
-          href="https://www.apple.com/app-store"
+          onClick={handleInstall}
+          href=""
           upperText="Download on the"
           lowerText="App Store"
           logo="/assets/logos/app_store.svg"
@@ -106,7 +107,8 @@ function StoreLinks({ type }: StoreLinksProps) {
           className="my-4 flex gap-3 rounded-lg border bg-transparent px-2 py-1 text-white hover:bg-zinc-950 active:bg-zinc-800"
         />
         <StoreLink
-          href="https://play.google.com"
+          onClick={handleInstall}
+          href=""
           upperText="Get it on"
           lowerText="Google Play"
           logo="/assets/logos/google_play.svg"

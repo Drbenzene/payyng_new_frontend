@@ -45,7 +45,7 @@ function CurrencyConverter() {
       <p className="text-gray-500 mt-2">
         Enter amount and choose currency to convert from
       </p>
-      <div className="md:w-[500px] w-full  bg-white rounded-xl shadow-lg p-5 mt-5">
+      <div className="md:w-[500px] w-full  bg-white rounded-xl shadow-lg md:p-5 mt-5">
         <ContentLayout>
           <div className="space-y-4">
             <Formik

@@ -27,6 +27,7 @@ import { FiSettings } from "react-icons/fi";
 import { CiBank } from "react-icons/ci";
 import { useRouter } from "next/navigation";
 import Image from "next/image";
+import { Crisp } from "crisp-sdk-web";
 
 const navigation = [
   { name: "Overview", href: "/overview", icon: SiHomeadvisor },

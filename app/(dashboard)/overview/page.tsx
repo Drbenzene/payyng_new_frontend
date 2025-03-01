@@ -94,8 +94,8 @@ function Page() {
           <div className="flex space-y-2 flex-col md:flex-row items-center w-full justify-between">
             <div>
               <p className="text-gray-500">
-                Verify your ID to unlock international remittance & payment
-                features on Payyng
+                Verify your ID to unlock international remittance, cards &
+                payment features on Payyng
               </p>
             </div>
             <div className="md:w-auto w-full">

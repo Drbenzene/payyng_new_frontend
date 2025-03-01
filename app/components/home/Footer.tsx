@@ -3,6 +3,8 @@ import { useInView } from "react-intersection-observer";
 import StoreLinks, { BtnTypes } from "../common/StoreLinks";
 import { IoLocation } from "react-icons/io5";
 import { MdMarkEmailUnread } from "react-icons/md";
+import { BiLocationPlus } from "react-icons/bi";
+
 function Footer() {
   const { ref, inView } = useInView({
     triggerOnce: true, // Ensure the animation triggers only once
@@ -36,8 +38,14 @@ function Footer() {
             {/* // ADD ADDRESS HERE */}
             <p className="mt-4 flex justify-start items-center gap-2">
               <IoLocation size={30} />
-              <span className="font-semibold">Address:</span> 123, Payyng
-              Street, Lagos, Nigeria
+              <span className="font-semibold"></span> 15A, Adekoya Estate, Ogba
+              Lagos, Nigeria
+            </p>
+
+            <p className="mt-4 flex justify-start items-center gap-2">
+              <BiLocationPlus size={30} />
+              <span className="font-semibold"></span> 23, Ilomo Street, Ijapo
+              Estate, Akure, Nigeria
             </p>
 
             {/* // ADD EMAIL HERE */}

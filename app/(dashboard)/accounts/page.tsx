@@ -316,7 +316,7 @@ function Page() {
                 {user?.tier === 1 && (
                   <div className="w-full flex flex-col justify-center items-center">
                     <p className="text-gray-500">
-                      Verify your ID to unlock international remittance &
+                      Verify your ID to unlock international remittance, cards &
                       payment features on Payyng
                     </p>
 

@@ -65,13 +65,13 @@ function Nav() {
               </div>
             </div>
             <div className="flex space-x-4">
-              {/* <button
+              <button
                 onClick={handleInstall}
-                className="active:bg  px-10 rounded-xl bg-black py-3 text-white sm:flex justify-center items-center space-x-3"
+                className="active:bg text  px-10 rounded-xl bg-black py-3 text-white sm:flex hidden justify-center items-center space-x-3"
               >
                 <RiDownloadCloud2Fill size={20} />
                 <p>DOWNLOAD</p>
-              </button> */}
+              </button>
 
               <ButtonLink
                 href={APP_PATH.LOGIN}
@@ -81,13 +81,13 @@ function Nav() {
               </ButtonLink>
             </div>
 
-            <Disclosure.Button className="rounded-md p-2 text-gray-500 hover:bg-gray-700 hover:text-white sm:hidden">
+            {/* <Disclosure.Button className="rounded-md p-2 text-gray-500 hover:bg-gray-700 hover:text-white sm:hidden">
               {open ? (
                 <XMarkIcon className="block h-6 w-6" />
               ) : (
                 <Bars3Icon className="block h-6 w-6" />
               )}
-            </Disclosure.Button>
+            </Disclosure.Button> */}
           </div>
           <Disclosure.Panel className="space-y-1 px-4 sm:hidden">
             {navLinks.map((link, index) => (
