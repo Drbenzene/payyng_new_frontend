@@ -58,7 +58,7 @@ function IDVerification() {
 
   return (
     <ContentLayout>
-      <div className="min-h-screen flex items-center justify-center bg-gray-900 p-1 md:p-6">
+      <div className="min-h-screen flex items-center justify-center w-full p-1 md:p-6">
         <div className="w-full bg-black p-2 md:p-8 rounded-3xl shadow-2xl text-center text-white border border-gray-700">
           <h2 className="text-xl md:text-3xl font-bold mb-6 text-white">
             {step === 0 && "Select ID Card Type"}
