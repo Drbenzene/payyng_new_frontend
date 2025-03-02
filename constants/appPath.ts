@@ -9,6 +9,7 @@ export const APP_PATH = {
   DASHBOARD: "/overview",
   ACCOUNTS: "/accounts",
   CONVERT: "/convert",
+  BILLS: "/bills",
 
   // PAYPAL
   PAYPAL: "/paypal",

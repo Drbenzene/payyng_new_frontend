@@ -26,9 +26,13 @@ function Page() {
   } = useTransaction();
 
   const quickActions = [
-    { name: "Pay Bills", image: "/invoice.svg", route: "/bills" },
-    { name: "Account", image: "/account.png", route: "/account" },
-    { name: "Paypal", image: "/paypal-svgrepo-com.svg", route: "/paypal" },
+    { name: "Pay Bills", image: "/invoice.svg", route: APP_PATH.BILLS },
+    { name: "Account", image: "/account.png", route: APP_PATH.ACCOUNTS },
+    {
+      name: "Paypal",
+      image: "/paypal-svgrepo-com.svg",
+      route: APP_PATH.PAYPAL,
+    },
   ];
 
   const columns = [
