@@ -18,7 +18,7 @@ import { APP_PATH } from "@/constants/appPath";
 function Page() {
   const { push } = useRouter();
   const [open, setOpen] = useState(false);
-  const { data: user, isLoading } = useUser();
+  const { data: user } = useUser();
   const {
     data: transactions,
     isLoading: transactionLoading,
@@ -113,8 +113,6 @@ function Page() {
           </div>
         </ContentLayout>
       )}
-
-      {/* //ID VERIFICATION HANDLER GOES HEREE */}
 
       <div className="w-full mt-5">
         <p className="text-gray-800 mb-5 font-extrabold">Your Balances</p>
