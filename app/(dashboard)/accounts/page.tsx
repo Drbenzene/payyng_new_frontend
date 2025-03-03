@@ -28,8 +28,10 @@ import { useWalletAccount } from "@/hooks/useWalletAccount";
 import Image from "next/image";
 import PayyngButton from "@/app/components/button/PayyngButton";
 import VerifyBVNModal from "@/app/components/modals/VerifyBVNModal";
+import WithdrawalModal from "@/app/components/modals/WithdrawalModal";
 
 function Page() {
+  const [openWithdrawal, setOpenWithdrawal] = useState(false);
   const { push } = useRouter();
   const [filters, setFilters] = useState<any>({
     currency: Currency.USD,
@@ -219,7 +221,10 @@ function Page() {
             >
               <span>Conversion</span> <SiConvertio />
             </button>
-            <button className="bg-red-900 text-white px-5 py-2 rounded-xl flex justify-center items-center space-x-2">
+            <button
+              onClick={() => setOpenWithdrawal(true)}
+              className="bg-red-900 text-white px-5 py-2 rounded-xl flex justify-center items-center space-x-2"
+            >
               <span>Withdraw</span>
               <span>
                 <RiSendPlaneLine />
@@ -237,7 +242,7 @@ function Page() {
               Your {activeTab} bank account details
             </p>
 
-            <div className="grid grid-cols-3 gap-5 mt-10">
+            <div className="grid grid-cols-3 gap-5 text-xs md:text-md  mt-10">
               {walletAccount &&
                 walletAccount
                   ?.filter((item: any) => item.currency === activeTab)
@@ -245,7 +250,7 @@ function Page() {
                     <Fragment key={item?.id}>
                       {item?.bankName && (
                         <div>
-                          <p className="text-gray-500">BANK NAME</p>
+                          <p className="text-gray-500 ">BANK NAME</p>
                           <p>{item?.bankName}</p>
                         </div>
                       )}
@@ -403,6 +408,13 @@ function Page() {
         <VerifyBVNModal
           open={showVerifyBVNModal}
           setOpen={setShowVerifyBVNModal}
+        />
+      )}
+      {openWithdrawal && (
+        <WithdrawalModal
+          open={openWithdrawal}
+          setOpen={setOpenWithdrawal}
+          // currency={activeWallet?.currencyCode}
         />
       )}
     </div>

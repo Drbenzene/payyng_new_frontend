@@ -63,10 +63,14 @@ function Page() {
 
   useEffect(() => {
     refetch();
-    if (user?.payScribeCustomerId) {
-      setOpenUpdate(true);
-    }
-  }, [refetch]);
+    const gerUserStatus = async () => {
+      if (user && !user?.payScribeCustomerId && !isLoading) {
+        setOpenUpdate(true);
+      }
+      return;
+    };
+    gerUserStatus();
+  }, [isLoading, refetch, user]);
 
   return (
     <div>
