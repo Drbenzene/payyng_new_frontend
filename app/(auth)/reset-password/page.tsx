@@ -16,7 +16,6 @@ function Page() {
   const { push } = useRouter();
   const [showNewPassword, setShowNewPassword] = useState(false);
   const resetPasswordHandler = async (values: any) => {
-    console.log(values, "THE VALUES ");
     const res = await forgetPassword(values);
     if (res) {
       toast.success("Password reset link sent to your email");

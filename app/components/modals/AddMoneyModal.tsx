@@ -19,7 +19,6 @@ function AddMoneyModal({ open, setOpen }: AddMoneyModalProps) {
     };
     const res = await fundWallet(payload);
     if (res) {
-      console.log(res, "THE RES BACKKKK");
       sessionStorage.setItem("paystackRef", res.reference);
       // OPEN THE PAYSTACK PAYMENT LINK IN A NEW WINDOW
       window.open(res.authorization_url, "_blank");

@@ -13,6 +13,11 @@ export async function validateUserBVN(payload: any) {
   return res;
 }
 
+export async function updateUserProfile(payload: any) {
+  const res = await APICall(API_PATH.UPDATE_PROFILE, API_METHOD.POST, payload);
+  return res;
+}
+
 export async function validateIdentity(payload: any) {
   const res = await APICall(
     API_PATH.VALIDATE_IDENTITY,

@@ -14,11 +14,14 @@ import PayyngButton from "@/app/components/button/PayyngButton";
 import VerifyBVNModal from "@/app/components/modals/VerifyBVNModal";
 import { useRouter } from "next/navigation";
 import { APP_PATH } from "@/constants/appPath";
+import UpdateAccountModal from "@/app/components/modals/UpdateAccountModal";
 
 function Page() {
   const { push } = useRouter();
   const [open, setOpen] = useState(false);
-  const { data: user } = useUser();
+  const { data: user, isLoading } = useUser();
+  const [openUpdate, setOpenUpdate] = useState(false);
+
   const {
     data: transactions,
     isLoading: transactionLoading,
@@ -60,7 +63,11 @@ function Page() {
 
   useEffect(() => {
     refetch();
+    if (user?.payScribeCustomerId) {
+      setOpenUpdate(true);
+    }
   }, [refetch]);
+
   return (
     <div>
       <p className="text-2xl font-semibold text-gray-800">
@@ -179,6 +186,10 @@ function Page() {
       </div>
 
       {open && <VerifyBVNModal open={open} setOpen={setOpen} />}
+
+      {openUpdate && (
+        <UpdateAccountModal open={openUpdate} setOpen={setOpenUpdate} />
+      )}
     </div>
   );
 }

@@ -35,6 +35,7 @@ export const API_PATH = {
   ADD_BANK: "bank",
   GET_BANKS: "bank/me",
   VALIDATE_BVN: "user/verify-bvn",
+  UPDATE_PROFILE: "user/update-profile",
   RESOLVE_ACCOUNT_NUMBER: "wallet/resolve-account",
 
   // BILLS
